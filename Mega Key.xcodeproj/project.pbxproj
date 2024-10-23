@@ -9,9 +9,39 @@
 /* Begin PBXBuildFile section */
 		7B8C08542C7C00F4004AEB4B /* Mega_KeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */; };
 		7B8C08562C7C00F4004AEB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08552C7C00F4004AEB4B /* ContentView.swift */; };
-		7B8C08582C7C00F5004AEB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C08572C7C00F5004AEB4B /* Assets.xcassets */; };
 		7B8C085B2C7C00F5004AEB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C085A2C7C00F5004AEB4B /* Preview Assets.xcassets */; };
+		7B8C08772C7C017E004AEB4B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */; };
+		7B8C087B2C7C017E004AEB4B /* Mega Key Keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7B8C08742C7C017E004AEB4B /* Mega Key Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7B8C08802C7D7896004AEB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C08572C7C00F5004AEB4B /* Assets.xcassets */; };
+		7B8C08822C7EC4C0004AEB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */; };
+		7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E492C95082600F6F241 /* TextGridView.swift */; };
+		7BE65E4C2C96840D00F6F241 /* QwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4B2C96840D00F6F241 /* QwertyView.swift */; };
+		7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4D2CAA532500F6F241 /* NumberView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B8C08792C7C017E004AEB4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B8C08482C7C00F4004AEB4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B8C08732C7C017E004AEB4B;
+			remoteInfo = "Mega Key Keyboard";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B8C087F2C7C017E004AEB4B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7B8C087B2C7C017E004AEB4B /* Mega Key Keyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7B8C08502C7C00F4004AEB4B /* Mega Key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega Key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +49,24 @@
 		7B8C08552C7C00F4004AEB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B8C08572C7C00F5004AEB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B8C085A2C7C00F5004AEB4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B8C08742C7C017E004AEB4B /* Mega Key Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Mega Key Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		7B8C08782C7C017E004AEB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BE65E492C95082600F6F241 /* TextGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGridView.swift; sourceTree = "<group>"; };
+		7BE65E4B2C96840D00F6F241 /* QwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwertyView.swift; sourceTree = "<group>"; };
+		7BE65E4D2CAA532500F6F241 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7B8C084D2C7C00F4004AEB4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B8C08712C7C017E004AEB4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				7B8C08522C7C00F4004AEB4B /* Mega Key */,
+				7B8C08752C7C017E004AEB4B /* Mega Key Keyboard */,
 				7B8C08512C7C00F4004AEB4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				7B8C08502C7C00F4004AEB4B /* Mega Key.app */,
+				7B8C08742C7C017E004AEB4B /* Mega Key Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,7 +99,7 @@
 			children = (
 				7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */,
 				7B8C08552C7C00F4004AEB4B /* ContentView.swift */,
-				7B8C08572C7C00F5004AEB4B /* Assets.xcassets */,
+				7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */,
 				7B8C08592C7C00F5004AEB4B /* Preview Content */,
 			);
 			path = "Mega Key";
@@ -67,6 +113,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7B8C08752C7C017E004AEB4B /* Mega Key Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */,
+				7BE65E492C95082600F6F241 /* TextGridView.swift */,
+				7BE65E4D2CAA532500F6F241 /* NumberView.swift */,
+				7BE65E4B2C96840D00F6F241 /* QwertyView.swift */,
+				7B8C08572C7C00F5004AEB4B /* Assets.xcassets */,
+				7B8C08782C7C017E004AEB4B /* Info.plist */,
+			);
+			path = "Mega Key Keyboard";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +136,34 @@
 				7B8C084C2C7C00F4004AEB4B /* Sources */,
 				7B8C084D2C7C00F4004AEB4B /* Frameworks */,
 				7B8C084E2C7C00F4004AEB4B /* Resources */,
+				7B8C087F2C7C017E004AEB4B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7B8C087A2C7C017E004AEB4B /* PBXTargetDependency */,
 			);
 			name = "Mega Key";
 			productName = "Mega Key";
 			productReference = 7B8C08502C7C00F4004AEB4B /* Mega Key.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7B8C08732C7C017E004AEB4B /* Mega Key Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B8C087C2C7C017E004AEB4B /* Build configuration list for PBXNativeTarget "Mega Key Keyboard" */;
+			buildPhases = (
+				7B8C08702C7C017E004AEB4B /* Sources */,
+				7B8C08712C7C017E004AEB4B /* Frameworks */,
+				7B8C08722C7C017E004AEB4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mega Key Keyboard";
+			productName = "Mega Key Keyboard";
+			productReference = 7B8C08742C7C017E004AEB4B /* Mega Key Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +176,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					7B8C084F2C7C00F4004AEB4B = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					7B8C08732C7C017E004AEB4B = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
@@ -116,6 +197,7 @@
 			projectRoot = "";
 			targets = (
 				7B8C084F2C7C00F4004AEB4B /* Mega Key */,
+				7B8C08732C7C017E004AEB4B /* Mega Key Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -125,8 +207,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8C08822C7EC4C0004AEB4B /* Assets.xcassets in Resources */,
 				7B8C085B2C7C00F5004AEB4B /* Preview Assets.xcassets in Resources */,
-				7B8C08582C7C00F5004AEB4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B8C08722C7C017E004AEB4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B8C08802C7D7896004AEB4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +232,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7B8C08702C7C017E004AEB4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B8C08772C7C017E004AEB4B /* KeyboardViewController.swift in Sources */,
+				7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */,
+				7BE65E4C2C96840D00F6F241 /* QwertyView.swift in Sources */,
+				7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B8C087A2C7C017E004AEB4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B8C08732C7C017E004AEB4B /* Mega Key Keyboard */;
+			targetProxy = 7B8C08792C7C017E004AEB4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7B8C085C2C7C00F5004AEB4B /* Debug */ = {
@@ -197,7 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -267,6 +376,7 @@
 		7B8C085F2C7C00F5004AEB4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -278,8 +388,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,6 +397,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LangChen.Mega-Key";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -296,6 +409,7 @@
 		7B8C08602C7C00F5004AEB4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -307,8 +421,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +430,61 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LangChen.Mega-Key";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B8C087D2C7C017E004AEB4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Q7NPDYNGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mega Key Keyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mega Key Keyboard";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LangChen.Mega-Key.Mega-Key-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B8C087E2C7C017E004AEB4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Q7NPDYNGP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mega Key Keyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mega Key Keyboard";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LangChen.Mega-Key.Mega-Key-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,6 +508,15 @@
 			buildConfigurations = (
 				7B8C085F2C7C00F5004AEB4B /* Debug */,
 				7B8C08602C7C00F5004AEB4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B8C087C2C7C017E004AEB4B /* Build configuration list for PBXNativeTarget "Mega Key Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B8C087D2C7C017E004AEB4B /* Debug */,
+				7B8C087E2C7C017E004AEB4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
