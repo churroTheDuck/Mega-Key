@@ -72,6 +72,7 @@ struct KeyboardView: View {
                                 caps = true
                             }
                         }
+                        print("\(caps)caps")
                     })
                     Button(action: {
                         textDocumentProxy.deleteBackward()
@@ -133,7 +134,7 @@ struct KeyboardView: View {
                     }
                 }
                 if (view == "text") {
-                    TextGridView(textDocumentProxy: textDocumentProxy)
+                    TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
                         .frame(width: g.size.width, height: g.size.height * 5 / 6)
                 } else {
                     NumberView(textDocumentProxy: textDocumentProxy)

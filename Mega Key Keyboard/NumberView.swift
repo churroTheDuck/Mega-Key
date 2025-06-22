@@ -22,7 +22,7 @@ struct NumberView: View {
                 GridItem(.flexible(), spacing: 0),
                 GridItem(.flexible(), spacing: 0)
             ], spacing: 0) {
-                ForEach(["(", ")", "$", "&", "@", "!", "-", "/", ":", ";", "\"", "?", "0", "1", "2", "3", "4", ",", "5", "6", "7", "8", "9", "."], id: \.self) { letter in
+                ForEach(["(", ")", "$", "&", "@", "!", "-", "/", ":", "'", "\"", "?", "0", "1", "2", "3", "4", ",", "5", "6", "7", "8", "9", "."], id: \.self) { letter in
                         Button(action: {
                             if !capsLock {
                                 if caps {

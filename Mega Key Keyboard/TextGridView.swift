@@ -9,8 +9,8 @@ import SwiftUI
 import AVFoundation
 
 struct TextGridView: View {
-    @State var caps = true
-    @State var capsLock = false
+    @Binding var caps: Bool
+    @Binding var capsLock: Bool
     var textDocumentProxy: UITextDocumentProxy
     var body: some View {
         GeometryReader { g in
