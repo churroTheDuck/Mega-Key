@@ -56,6 +56,8 @@
 		7BE65E492C95082600F6F241 /* TextGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGridView.swift; sourceTree = "<group>"; };
 		7BE65E4B2C96840D00F6F241 /* QwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwertyView.swift; sourceTree = "<group>"; };
 		7BE65E4D2CAA532500F6F241 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		7BEE5DB52E66718100D3796A /* Mega Key.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key.entitlements"; sourceTree = "<group>"; };
+		7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key Keyboard.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		7B8C08522C7C00F4004AEB4B /* Mega Key */ = {
 			isa = PBXGroup;
 			children = (
+				7BEE5DB52E66718100D3796A /* Mega Key.entitlements */,
 				7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */,
 				7B8C08552C7C00F4004AEB4B /* ContentView.swift */,
 				7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */,
@@ -116,6 +119,7 @@
 		7B8C08752C7C017E004AEB4B /* Mega Key Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */,
 				7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */,
 				7BE65E492C95082600F6F241 /* TextGridView.swift */,
 				7BE65E4D2CAA532500F6F241 /* NumberView.swift */,
@@ -378,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mega Key/Mega Key.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega Key/Preview Content\"";
@@ -410,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mega Key/Mega Key.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Mega Key/Preview Content\"";
@@ -440,6 +446,7 @@
 		7B8C087D2C7C017E004AEB4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Mega Key Keyboard/Mega Key Keyboard.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Q7NPDYNGP;
@@ -466,6 +473,7 @@
 		7B8C087E2C7C017E004AEB4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Mega Key Keyboard/Mega Key Keyboard.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Q7NPDYNGP;
