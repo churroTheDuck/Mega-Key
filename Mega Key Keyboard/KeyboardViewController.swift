@@ -13,6 +13,9 @@ struct KeyboardView: View {
     @State var caps = true
     @State var capsLock = false
     @State var view = "text"
+    @State var left = true
+    let isQwerty = UserDefaults(suiteName: "group.mega-key")?
+        .bool(forKey: "isQwerty") ?? true
     var textDocumentProxy: UITextDocumentProxy
     var advanceToNextInputMode: (() -> Void)?
     var body: some View {
@@ -24,7 +27,7 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .frame(width: g.size.width / 6, height: g.size.height / 6)
+                                .frame(width: isQwerty ? g.size.width / 5 : g.size.width / 6, height: g.size.height / 6)
                                 .foregroundColor(Color("color"))
                                 .border(Color("borderColor"), width: 1)
                             Image(systemName: "globe")
@@ -41,7 +44,7 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .frame(width: g.size.width / 6, height: g.size.height / 6)
+                                .frame(width: isQwerty ? g.size.width / 5 : g.size.width / 6, height: g.size.height / 6)
                                 .foregroundColor(Color("color"))
                                 .border(Color("borderColor"), width: 1)
                             Image(systemName: view == "text" ? "textformat.123" : "abc")
@@ -51,7 +54,7 @@ struct KeyboardView: View {
                     }
                     ZStack {
                         Rectangle()
-                            .frame(width: g.size.width / 6, height: g.size.height / 6)
+                            .frame(width: isQwerty ? g.size.width / 5 : g.size.width / 6, height: g.size.height / 6)
                             .foregroundColor(Color("color"))
                             .border(Color("borderColor"), width: 1)
                         Image(systemName: capsLock ? "capslock.fill" : caps ? "shift.fill" : "shift")
@@ -80,7 +83,7 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .frame(width: g.size.width / 6, height: g.size.height / 6)
+                                .frame(width: isQwerty ? g.size.width / 5 : g.size.width / 6, height: g.size.height / 6)
                                 .foregroundColor(Color("color"))
                                 .border(Color("borderColor"), width: 1)
                             Image(systemName: "delete.left")
@@ -105,18 +108,20 @@ struct KeyboardView: View {
                         .onEnded { _ in
                             timer?.invalidate()
                         })
-                    Button(action: {
-                        textDocumentProxy.insertText(" ")
-                        AudioServicesPlaySystemSound(1104)
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: g.size.width / 6, height: g.size.height / 6)
-                                .foregroundColor(Color("color"))
-                                .border(Color("borderColor"), width: 1)
-                            Text("Space")
-                                .font((g.size.height * 3 > g.size.width) ? .body : .title.weight(.regular))
-                                .foregroundColor(Color("textColor"))
+                    if (!isQwerty) {
+                        Button(action: {
+                            textDocumentProxy.insertText(" ")
+                            AudioServicesPlaySystemSound(1104)
+                        }) {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: g.size.width / 6, height: g.size.height / 6)
+                                    .foregroundColor(Color("color"))
+                                    .border(Color("borderColor"), width: 1)
+                                Image(systemName: "space")
+                                    .font(.largeTitle.weight(.regular))
+                                    .foregroundColor(Color("textColor"))
+                            }
                         }
                     }
                     Button(action: {
@@ -124,7 +129,7 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .frame(width: g.size.width / 6, height: g.size.height / 6)
+                                .frame(width: isQwerty ? g.size.width / 5 : g.size.width / 6, height: g.size.height / 6)
                                 .foregroundColor(Color("color"))
                                 .border(Color("borderColor"), width: 1)
                             Image(systemName: "return")
@@ -134,8 +139,13 @@ struct KeyboardView: View {
                     }
                 }
                 if (view == "text") {
-                    TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
-                        .frame(width: g.size.width, height: g.size.height * 5 / 6)
+                    if (isQwerty) {
+                        QwertyView(caps: caps, left: $left, textDocumentProxy: textDocumentProxy)
+                            .frame(width: g.size.width, height: g.size.height * 5 / 6)
+                    } else {
+                        TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
+                            .frame(width: g.size.width, height: g.size.height * 5 / 6)
+                    }
                 } else {
                     NumberView(textDocumentProxy: textDocumentProxy)
                         .frame(width: g.size.width, height: g.size.height * 5 / 6)
