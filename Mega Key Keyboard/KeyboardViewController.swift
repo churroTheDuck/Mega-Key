@@ -61,7 +61,7 @@ struct KeyboardView: View {
                             .font(.largeTitle.weight(.regular))
                             .foregroundColor(Color("textColor"))
                     }
-                    .gesture(LongPressGesture(minimumDuration: 1.5).onEnded { _ in
+                    .gesture(LongPressGesture(minimumDuration: 1).onEnded { _ in
                         capsLock = true
                     })
                     .simultaneousGesture(TapGesture(count: 1).onEnded {
