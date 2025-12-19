@@ -9,8 +9,8 @@ import SwiftUI
 import AVFoundation
 
 struct QwertyView: View {
-    @State var caps = true
-    @State var capsLock = false
+    @Binding var caps: Bool
+    @Binding var capsLock: Bool
     @Binding var left: Bool
     var textDocumentProxy: UITextDocumentProxy
     var body: some View {

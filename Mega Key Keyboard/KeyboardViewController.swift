@@ -140,7 +140,7 @@ struct KeyboardView: View {
                 }
                 if (view == "text") {
                     if (isQwerty) {
-                        QwertyView(caps: caps, left: $left, textDocumentProxy: textDocumentProxy)
+                        QwertyView(caps: $caps, capsLock: $capsLock, left: $left, textDocumentProxy: textDocumentProxy)
                             .frame(width: g.size.width, height: g.size.height * 5 / 6)
                     } else {
                         TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
