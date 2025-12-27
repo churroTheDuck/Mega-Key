@@ -8,7 +8,7 @@
 import SwiftUI
 
 class SettingsViewModel: ObservableObject {
-    @AppStorage("isQwerty", store: UserDefaults(suiteName: "group.mega-key")) var isQwerty: Bool = true
+    @AppStorage("isQwerty", store: UserDefaults(suiteName: "group.mega-key")) var isQwerty: Int = 0
 }
 
 struct ContentView: View {
@@ -18,8 +18,9 @@ struct ContentView: View {
             Form {
                 Section(header: Text("KEYBOARD LAYOUT")) {
                     Picker("Layout", selection: $settings.isQwerty) {
-                        Text("ABC").tag(false)
-                        Text("QWERTY").tag(true)
+                        Text("ABC").tag(0)
+                        Text("QWERTY").tag(1)
+                        Text("Split QWERTY").tag(2)
                     }
                     .labelsHidden()
                     .pickerStyle(.inline)

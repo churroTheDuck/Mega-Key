@@ -14,8 +14,7 @@ struct KeyboardView: View {
     @State var capsLock = false
     @State var view = "text"
     @State var left = true
-    let isQwerty = UserDefaults(suiteName: "group.mega-key")?
-        .bool(forKey: "isQwerty") ?? true
+    let isQwerty = UserDefaults(suiteName: "group.mega-key")?.integer(forKey: "isQwerty") ?? 0
     var textDocumentProxy: UITextDocumentProxy
     var advanceToNextInputMode: (() -> Void)?
     var body: some View {
@@ -28,7 +27,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "globe")
@@ -46,7 +45,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: view == "text" ? "textformat.123" : "abc")
@@ -57,7 +56,7 @@ struct KeyboardView: View {
                     ZStack {
                         Rectangle()
                             .cornerRadius(15)
-                            .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                            .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                             .foregroundColor(Color("buttonColor"))
                             .padding(5)
                         Image(systemName: capsLock ? "capslock.fill" : caps ? "shift.fill" : "shift")
@@ -87,7 +86,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "delete.left")
@@ -112,7 +111,7 @@ struct KeyboardView: View {
                         .onEnded { _ in
                             timer?.invalidate()
                         })
-                    if (!isQwerty) {
+                    if (isQwerty == 0) {
                         Button(action: {
                             textDocumentProxy.insertText(" ")
                             AudioServicesPlaySystemSound(1104)
@@ -120,7 +119,7 @@ struct KeyboardView: View {
                             ZStack {
                                 Rectangle()
                                     .cornerRadius(15)
-                                    .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                                    .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                     .foregroundColor(Color("buttonColor"))
                                     .padding(5)
                                 Image(systemName: "space")
@@ -135,7 +134,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty ? g.size.width / 5 - 10 : g.size.width / 6 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "return")
@@ -145,10 +144,17 @@ struct KeyboardView: View {
                     }
                 }
                 if (view == "text") {
-                    if (isQwerty) {
-                        QwertyView(caps: $caps, capsLock: $capsLock, left: $left, textDocumentProxy: textDocumentProxy)
+                    switch (isQwerty) {
+                    case 0:
+                        TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
                             .frame(width: g.size.width, height: g.size.height * 5 / 6)
-                    } else {
+                    case 1:
+                        QwertyView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
+                            .frame(width: g.size.width, height: g.size.height * 5 / 6)
+                    case 2:
+                        SplitQwertyView(caps: $caps, capsLock: $capsLock, left: $left, textDocumentProxy: textDocumentProxy)
+                            .frame(width: g.size.width, height: g.size.height * 5 / 6)
+                    default:
                         TextGridView(caps: $caps, capsLock: $capsLock, textDocumentProxy: textDocumentProxy)
                             .frame(width: g.size.width, height: g.size.height * 5 / 6)
                     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B19F4802EFF9E9000CE2827 /* QwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */; };
 		7B8C08542C7C00F4004AEB4B /* Mega_KeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */; };
 		7B8C08562C7C00F4004AEB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08552C7C00F4004AEB4B /* ContentView.swift */; };
 		7B8C085B2C7C00F5004AEB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C085A2C7C00F5004AEB4B /* Preview Assets.xcassets */; };
@@ -15,7 +16,7 @@
 		7B8C08802C7D7896004AEB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C08572C7C00F5004AEB4B /* Assets.xcassets */; };
 		7B8C08822C7EC4C0004AEB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */; };
 		7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E492C95082600F6F241 /* TextGridView.swift */; };
-		7BE65E4C2C96840D00F6F241 /* QwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4B2C96840D00F6F241 /* QwertyView.swift */; };
+		7BE65E4C2C96840D00F6F241 /* SplitQwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4B2C96840D00F6F241 /* SplitQwertyView.swift */; };
 		7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4D2CAA532500F6F241 /* NumberView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwertyView.swift; sourceTree = "<group>"; };
 		7B8C08502C7C00F4004AEB4B /* Mega Key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega Key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mega_KeyApp.swift; sourceTree = "<group>"; };
 		7B8C08552C7C00F4004AEB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		7B8C08782C7C017E004AEB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8C08812C7EC4C0004AEB4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BE65E492C95082600F6F241 /* TextGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGridView.swift; sourceTree = "<group>"; };
-		7BE65E4B2C96840D00F6F241 /* QwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwertyView.swift; sourceTree = "<group>"; };
+		7BE65E4B2C96840D00F6F241 /* SplitQwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitQwertyView.swift; sourceTree = "<group>"; };
 		7BE65E4D2CAA532500F6F241 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		7BEE5DB52E66718100D3796A /* Mega Key.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key.entitlements"; sourceTree = "<group>"; };
 		7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key Keyboard.entitlements"; sourceTree = "<group>"; };
@@ -122,8 +124,9 @@
 				7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */,
 				7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */,
 				7BE65E492C95082600F6F241 /* TextGridView.swift */,
+				7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */,
 				7BE65E4D2CAA532500F6F241 /* NumberView.swift */,
-				7BE65E4B2C96840D00F6F241 /* QwertyView.swift */,
+				7BE65E4B2C96840D00F6F241 /* SplitQwertyView.swift */,
 				7B8C08572C7C00F5004AEB4B /* Assets.xcassets */,
 				7B8C08782C7C017E004AEB4B /* Info.plist */,
 			);
@@ -241,8 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8C08772C7C017E004AEB4B /* KeyboardViewController.swift in Sources */,
+				7B19F4802EFF9E9000CE2827 /* QwertyView.swift in Sources */,
 				7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */,
-				7BE65E4C2C96840D00F6F241 /* QwertyView.swift in Sources */,
+				7BE65E4C2C96840D00F6F241 /* SplitQwertyView.swift in Sources */,
 				7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
