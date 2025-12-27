@@ -27,7 +27,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "globe")
@@ -45,7 +45,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: view == "text" ? "textformat.123" : "abc")
@@ -56,7 +56,7 @@ struct KeyboardView: View {
                     ZStack {
                         Rectangle()
                             .cornerRadius(15)
-                            .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                            .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                             .foregroundColor(Color("buttonColor"))
                             .padding(5)
                         Image(systemName: capsLock ? "capslock.fill" : caps ? "shift.fill" : "shift")
@@ -86,7 +86,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "delete.left")
@@ -111,7 +111,7 @@ struct KeyboardView: View {
                         .onEnded { _ in
                             timer?.invalidate()
                         })
-                    if (isQwerty == 0) {
+                    if (isQwerty != 2) {
                         Button(action: {
                             textDocumentProxy.insertText(" ")
                             AudioServicesPlaySystemSound(1104)
@@ -119,7 +119,7 @@ struct KeyboardView: View {
                             ZStack {
                                 Rectangle()
                                     .cornerRadius(15)
-                                    .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                    .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                     .foregroundColor(Color("buttonColor"))
                                     .padding(5)
                                 Image(systemName: "space")
@@ -134,7 +134,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: isQwerty == 0 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
                             Image(systemName: "return")
