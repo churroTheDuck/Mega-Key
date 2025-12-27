@@ -40,9 +40,10 @@ struct NumberView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: g.size.width / 6, height: g.size.height / 4)
-                                    .foregroundColor(Color("color"))
-                                    .border(Color("borderColor"), width: 1)
+                                    .cornerRadius(15)
+                                    .frame(width: g.size.width / 6 - 10, height: g.size.height / 4 - 10)
+                                    .foregroundColor(Color("buttonColor"))
+                                    .padding(5)
                                 Text(caps || capsLock ? letter : letter.lowercased())
                                     .font(.largeTitle.weight(.regular))
                                     .foregroundColor(Color("textColor"))

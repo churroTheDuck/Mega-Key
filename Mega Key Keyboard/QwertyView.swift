@@ -40,9 +40,10 @@ struct QwertyView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: g.size.width / 5, height: g.size.height / 4)
-                                    .foregroundStyle(Color("color"))
-                                    .border(Color("borderColor"), width: 1)
+                                    .cornerRadius(15)
+                                    .frame(width: g.size.width / 5 - 10, height: g.size.height / 4 - 10)
+                                    .foregroundColor(Color("buttonColor"))
+                                    .padding(5)
                                 Text(caps || capsLock ? letter : letter.lowercased())
                                     .foregroundStyle(Color("textColor"))
                                     .font(.largeTitle.weight(.regular))
@@ -57,9 +58,10 @@ struct QwertyView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .frame(width: g.size.width * 3 / 5, height: g.size.height / 4)
-                                .foregroundStyle(Color("color"))
-                                .border(Color("borderColor"), width: 1)
+                                .cornerRadius(15)
+                                .frame(width: g.size.width * 2 / 5 - 10, height: g.size.height / 4 - 10)
+                                .foregroundColor(Color("buttonColor"))
+                                .padding(5)
                             Image(systemName: "space")
                                 .foregroundStyle(Color("textColor"))
                                 .font(.largeTitle.weight(.regular))
@@ -71,10 +73,11 @@ struct QwertyView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: g.size.width * 2 / 5, height: g.size.height / 4)
-                                    .foregroundStyle(Color("color"))
-                                    .border(Color("borderColor"), width: 1)
-                                Image(systemName: "chevron.left")
+                                    .cornerRadius(15)
+                                    .frame(width: g.size.width * 3 / 5 - 10, height: g.size.height / 4 - 10)
+                                    .foregroundColor(Color("bluColor"))
+                                    .padding(5)
+                                Image(systemName: "chevron.left.2")
                                     .foregroundStyle(Color("textColor"))
                                     .font(.largeTitle.weight(.regular))
                             }
@@ -86,10 +89,11 @@ struct QwertyView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: g.size.width * 2 / 5, height: g.size.height / 4)
-                                    .foregroundStyle(Color("color"))
-                                    .border(Color("borderColor"), width: 1)
-                                Image(systemName: "chevron.right")
+                                    .cornerRadius(15)
+                                    .frame(width: g.size.width * 3 / 5 - 10, height: g.size.height / 4 - 10)
+                                    .foregroundColor(Color("bluColor"))
+                                    .padding(5)
+                                Image(systemName: "chevron.right.2")
                                     .foregroundStyle(Color("textColor"))
                                     .font(.largeTitle.weight(.regular))
                             }

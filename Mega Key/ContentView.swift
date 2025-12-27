@@ -8,8 +8,7 @@
 import SwiftUI
 
 class SettingsViewModel: ObservableObject {
-    @AppStorage("isQwerty", store: UserDefaults(suiteName: "group.mega-key"))
-    var isQwerty: Bool = true
+    @AppStorage("isQwerty", store: UserDefaults(suiteName: "group.mega-key")) var isQwerty: Bool = true
 }
 
 struct ContentView: View {
