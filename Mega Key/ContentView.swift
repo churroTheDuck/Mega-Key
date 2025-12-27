@@ -47,7 +47,7 @@ struct ContentView: View {
                 Text("This is not an app, but rather a custom keyboard that will replace the default iOS system keyboard. It has significantly larger keys, making it easier to spell correctly.")
                     .foregroundStyle(Color("textColor"))
                     .font(.body)
-                Text("How to use it")
+                Text("How to install it")
                     .foregroundStyle(Color("textColor"))
                     .font(.largeTitle)
                 Text("Step 1: Go to the Settings app.")
