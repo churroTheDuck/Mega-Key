@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+import PredictionKeyboard
 
 class SettingsViewModel: ObservableObject {
     @AppStorage("isQwerty", store: UserDefaults(suiteName: "group.mega-key")) var isQwerty: Int = 0
@@ -112,6 +114,144 @@ struct ContentView: View {
             }
         }
     }
+}
+
+class ViewController: UIViewController {
+
+    private var predictionManager: PredictionKeyboardManager!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Initialize with app group (for keyboard extension sharing)
+        // IMPORTANT: Replace with YOUR unique app group identifier
+        predictionManager = PredictionKeyboardManager(appGroup: "group.mega-key")
+
+        // Check if database is already downloaded
+        if predictionManager.isDatabaseDownloaded() {
+            print("Database already exists, initializing...")
+            initializeDatabase()
+        } else {
+            print("Database not found, starting download...")
+            downloadDatabase()
+        }
+    }
+
+    private func downloadDatabase() {
+        // Show download UI with progress bar
+        predictionManager.downloadDatabase(withUI: self) { [weak self] success, error in
+            if success {
+                print("Download completed successfully!")
+                self?.initializeDatabase()
+            } else {
+                print("Download failed: \(error?.localizedDescription ?? "Unknown error")")
+                self?.showErrorAlert(error: error)
+            }
+        }
+    }
+
+    private func initializeDatabase() {
+        predictionManager.initializePredictionDatabase { [weak self] success, error in
+            if success {
+                print("Database ready to use!")
+                self?.testPredictions()
+            } else {
+                print("Database initialization failed: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+    }
+
+    private func testPredictions() {
+        // Test next-word prediction (note the trailing space)
+        predictionManager.getPrediction("how are ") { suggestions, textColor in
+            print("Next-word predictions: \(suggestions)")
+            // suggestions = ["you", "they", "we"]
+        }
+
+        // Test word completion (no trailing space)
+        predictionManager.getPrediction("hel") { suggestions, textColor in
+            print("Word completions: \(suggestions)")
+            // suggestions = ["hello", "help", "held"]
+        }
+    }
+
+    private func showErrorAlert(error: Error?) {
+        let alert = UIAlertController(
+            title: "Download Failed",
+            message: error?.localizedDescription ?? "Unknown error",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            self?.downloadDatabase()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+}
+
+import UIKit
+import PredictionKeyboard
+
+final class PredictionSetupViewController: UIViewController {
+
+    private var predictionManager: PredictionKeyboardManager!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.isHidden = true // no UI
+
+        predictionManager = PredictionKeyboardManager(
+            appGroup: "group.mega-key"
+        )
+
+        if predictionManager.isDatabaseDownloaded() {
+            initializeDatabase()
+        } else {
+            downloadDatabase()
+        }
+    }
+
+    private func downloadDatabase() {
+        predictionManager.downloadDatabase(withUI: self) { [weak self] success, error in
+            if success {
+                self?.initializeDatabase()
+            } else {
+                self?.showErrorAlert(error: error)
+            }
+        }
+    }
+
+    private func initializeDatabase() {
+        predictionManager.initializePredictionDatabase { success, error in
+            if !success {
+                print("Prediction DB init failed:", error?.localizedDescription ?? "unknown")
+            }
+        }
+    }
+
+    private func showErrorAlert(error: Error?) {
+        let alert = UIAlertController(
+            title: "Prediction Download Failed",
+            message: error?.localizedDescription ?? "Unknown error",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            self?.downloadDatabase()
+        })
+        present(alert, animated: true)
+    }
+}
+
+struct PredictionSetupController: UIViewControllerRepresentable {
+
+    func makeUIViewController(context: Context) -> PredictionSetupViewController {
+        PredictionSetupViewController()
+    }
+
+    func updateUIViewController(
+        _ uiViewController: PredictionSetupViewController,
+        context: Context
+    ) {}
 }
 
 #Preview {

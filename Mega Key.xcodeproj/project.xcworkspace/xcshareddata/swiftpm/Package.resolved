@@ -1,0 +1,15 @@
+{
+  "originHash" : "a6986d8136a9a06dfc67d4c6438adf3444f214c0b4c689aa719e6821da94728f",
+  "pins" : [
+    {
+      "identity" : "custom-keyboard-prediction",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/carloskekwa/Custom-Keyboard-Prediction",
+      "state" : {
+        "revision" : "d3cbd08eb748f273062927240ccd281b0d581bce",
+        "version" : "1.0.45"
+      }
+    }
+  ],
+  "version" : 3
+}

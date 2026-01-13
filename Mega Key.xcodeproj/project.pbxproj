@@ -18,6 +18,11 @@
 		7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E492C95082600F6F241 /* TextGridView.swift */; };
 		7BE65E4C2C96840D00F6F241 /* SplitQwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4B2C96840D00F6F241 /* SplitQwertyView.swift */; };
 		7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE65E4D2CAA532500F6F241 /* NumberView.swift */; };
+		FB68C5082F15C9FA00392C5A /* PredictionKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = FB68C5072F15C9FA00392C5A /* PredictionKeyboard */; };
+		FB68C50A2F15CA0800392C5A /* PredictionKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = FB68C5092F15CA0800392C5A /* PredictionKeyboard */; };
+		FB68C50D2F15D07C00392C5A /* PredictionKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = FB68C50C2F15D07C00392C5A /* PredictionKeyboard */; };
+		FB68C50F2F15D08700392C5A /* PredictionKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = FB68C50E2F15D08700392C5A /* PredictionKeyboard */; };
+		FB68C5112F1611F800392C5A /* PredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB68C5102F1611F800392C5A /* PredictionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,7 @@
 		7BE65E4D2CAA532500F6F241 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		7BEE5DB52E66718100D3796A /* Mega Key.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key.entitlements"; sourceTree = "<group>"; };
 		7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mega Key Keyboard.entitlements"; sourceTree = "<group>"; };
+		FB68C5102F1611F800392C5A /* PredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB68C50D2F15D07C00392C5A /* PredictionKeyboard in Frameworks */,
+				FB68C5082F15C9FA00392C5A /* PredictionKeyboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB68C50F2F15D08700392C5A /* PredictionKeyboard in Frameworks */,
+				FB68C50A2F15CA0800392C5A /* PredictionKeyboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +136,7 @@
 				7BE65E492C95082600F6F241 /* TextGridView.swift */,
 				7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */,
 				7BE65E4D2CAA532500F6F241 /* NumberView.swift */,
+				FB68C5102F1611F800392C5A /* PredictionView.swift */,
 				7BE65E4B2C96840D00F6F241 /* SplitQwertyView.swift */,
 				7B8C08572C7C00F5004AEB4B /* Assets.xcassets */,
 				7B8C08782C7C017E004AEB4B /* Info.plist */,
@@ -199,6 +210,9 @@
 				Base,
 			);
 			mainGroup = 7B8C08472C7C00F4004AEB4B;
+			packageReferences = (
+				FB68C50B2F15D07C00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */,
+			);
 			productRefGroup = 7B8C08512C7C00F4004AEB4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -244,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B8C08772C7C017E004AEB4B /* KeyboardViewController.swift in Sources */,
+				FB68C5112F1611F800392C5A /* PredictionView.swift in Sources */,
 				7B19F4802EFF9E9000CE2827 /* QwertyView.swift in Sources */,
 				7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */,
 				7BE65E4C2C96840D00F6F241 /* SplitQwertyView.swift in Sources */,
@@ -532,6 +547,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB68C5062F15C9FA00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carloskekwa/Custom-Keyboard-Prediction";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.45;
+			};
+		};
+		FB68C50B2F15D07C00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carloskekwa/Custom-Keyboard-Prediction";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.45;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB68C5072F15C9FA00392C5A /* PredictionKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB68C5062F15C9FA00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */;
+			productName = PredictionKeyboard;
+		};
+		FB68C5092F15CA0800392C5A /* PredictionKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB68C5062F15C9FA00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */;
+			productName = PredictionKeyboard;
+		};
+		FB68C50C2F15D07C00392C5A /* PredictionKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB68C50B2F15D07C00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */;
+			productName = PredictionKeyboard;
+		};
+		FB68C50E2F15D08700392C5A /* PredictionKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB68C50B2F15D07C00392C5A /* XCRemoteSwiftPackageReference "Custom-Keyboard-Prediction" */;
+			productName = PredictionKeyboard;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B8C08482C7C00F4004AEB4B /* Project object */;
 }

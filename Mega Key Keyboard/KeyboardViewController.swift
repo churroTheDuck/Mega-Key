@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AVFoundation
+import UIKit
+import PredictionKeyboard
 
 struct KeyboardView: View {
     @State var timer: Timer?
@@ -169,7 +171,7 @@ struct KeyboardView: View {
     }
 }
 
-class KeyboardViewController: UIInputViewController {
+/*class KeyboardViewController: UIInputViewController {
     
     @IBOutlet var nextKeyboardButton: UIButton!
     
@@ -203,5 +205,143 @@ class KeyboardViewController: UIInputViewController {
     
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
+    }
+}*/
+
+class KeyboardViewController: UIInputViewController {
+
+    private var predictionManager: PredictionKeyboardManager!
+    private var suggestionBar: UIStackView!
+    private var suggestionButtons: [UIButton] = []
+    private var databaseInitialized = false
+
+    // MARK: - Initialization
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupPredictionManager()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupPredictionManager()
+    }
+
+    private func setupPredictionManager() {
+        // IMPORTANT: Replace with YOUR unique app group identifier (same as main app)
+        predictionManager = PredictionKeyboardManager(appGroup: "group.mega-key")
+
+        // Initialize database in background
+        predictionManager.initializePredictionDatabase { [weak self] success, error in
+            if success {
+                self?.databaseInitialized = true
+                print("[Keyboard] Prediction database ready!")
+            } else {
+                print("[Keyboard] Database initialization failed: \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
+
+    // MARK: - View Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupSuggestionBar()
+        setupNextKeyboardButton()
+        let currentText = "hel"
+
+        predictionManager.getPrediction(currentText) { [weak self] suggestions, textColor in
+            self?.updateSuggestions(suggestions, color: textColor)
+        }
+    }
+
+    private func setupSuggestionBar() {
+        // Create 3 suggestion buttons
+        for i in 0..<3 {
+            let button = UIButton(type: .system)
+            button.titleLabel?.font = .systemFont(ofSize: 16)
+            button.tag = i
+            button.addTarget(self, action: #selector(suggestionTapped(_:)), for: .touchUpInside)
+            suggestionButtons.append(button)
+        }
+
+        suggestionBar = UIStackView(arrangedSubviews: suggestionButtons)
+        suggestionBar.axis = .horizontal
+        suggestionBar.distribution = .fillEqually
+        suggestionBar.alignment = .center
+        suggestionBar.spacing = 8
+        suggestionBar.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(suggestionBar)
+
+        NSLayoutConstraint.activate([
+            suggestionBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+            suggestionBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            suggestionBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            suggestionBar.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
+
+    private func setupNextKeyboardButton() {
+        // Add next keyboard button (required for custom keyboards)
+        let nextKeyboardButton = UIButton(type: .system)
+        nextKeyboardButton.setTitle("🌐", for: .normal)
+        nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+
+        view.addSubview(nextKeyboardButton)
+
+        NSLayoutConstraint.activate([
+            nextKeyboardButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
+            nextKeyboardButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+        ])
+    }
+
+    // MARK: - Suggestion Handling
+
+    @objc private func suggestionTapped(_ sender: UIButton) {
+        guard var suggestion = sender.titleLabel?.text, !suggestion.isEmpty else { return }
+
+        // Remove quotes if present (word completion mode)
+        if suggestion.hasPrefix("\"") && suggestion.hasSuffix("\"") {
+            suggestion = String(suggestion.dropFirst().dropLast())
+        }
+
+        // Delete current partial word
+        let currentText = textDocumentProxy.documentContextBeforeInput ?? ""
+        if !currentText.hasSuffix(" ") && !currentText.isEmpty {
+            while let context = textDocumentProxy.documentContextBeforeInput,
+                  !context.isEmpty && !context.hasSuffix(" ") {
+                textDocumentProxy.deleteBackward()
+            }
+        }
+
+        // Insert the suggestion with a space
+        textDocumentProxy.insertText(suggestion + " ")
+    }
+
+    private func updateSuggestions(_ suggestions: [String], color: UIColor) {
+        for (index, button) in suggestionButtons.enumerated() {
+            if index < suggestions.count && !suggestions[index].isEmpty {
+                button.setTitle(suggestions[index], for: .normal)
+                button.setTitleColor(color, for: .normal)
+                button.isHidden = false
+            } else {
+                button.setTitle("", for: .normal)
+                button.isHidden = true
+            }
+        }
+    }
+
+    // MARK: - UIInputViewController Overrides
+
+    override func textDidChange(_ textInput: UITextInput?) {
+        guard databaseInitialized else { return }
+
+        let currentText = textDocumentProxy.documentContextBeforeInput ?? ""
+
+        predictionManager.getPrediction(currentText) { [weak self] suggestions, textColor in
+            self?.updateSuggestions(suggestions, color: textColor)
+        }
     }
 }
