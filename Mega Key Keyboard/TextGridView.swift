@@ -11,7 +11,9 @@ import AVFoundation
 struct TextGridView: View {
     @Binding var caps: Bool
     @Binding var capsLock: Bool
+    @Binding var predictions: [String]
     var textDocumentProxy: UITextDocumentProxy
+    var getPredictions: (String, @escaping ([String]) -> Void) -> Void
     var body: some View {
         GeometryReader { g in
             LazyVGrid(columns: [
@@ -35,6 +37,11 @@ struct TextGridView: View {
                                 }
                             } else {
                                 textDocumentProxy.insertText(letter)
+                            }
+                            getPredictions(textDocumentProxy.documentContextBeforeInput ?? "") { suggestions in
+                                do {
+                                    predictions = suggestions
+                                } catch {}
                             }
                             AudioServicesPlaySystemSound(1104)
                         }) {
