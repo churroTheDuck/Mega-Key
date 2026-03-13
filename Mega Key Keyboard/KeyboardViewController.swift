@@ -15,6 +15,7 @@ struct KeyboardView: View {
     @State var view = "text"
     @State var left = true
     let isQwerty = UserDefaults(suiteName: "group.mega-key")?.integer(forKey: "isQwerty") ?? 0
+    // abc is 0, qwerty is 1, qwerty-split is 2
     var textDocumentProxy: UITextDocumentProxy
     var advanceToNextInputMode: (() -> Void)?
     var body: some View {
@@ -26,10 +27,10 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .cornerRadius(15)
-                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .cornerRadius(isQwertyView() ? 10 : 15)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
-                                .padding(5)
+                                .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "globe")
                                 .font(.title.weight(.regular))
                                 .foregroundColor(Color("textColor"))
@@ -44,10 +45,10 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .cornerRadius(15)
-                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .cornerRadius(isQwertyView() ? 10 : 15)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
-                                .padding(5)
+                                .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: view == "text" ? "textformat.123" : "abc")
                                 .font(.title.weight(.regular))
                                 .foregroundColor(Color("textColor"))
@@ -55,10 +56,10 @@ struct KeyboardView: View {
                     }
                     ZStack {
                         Rectangle()
-                            .cornerRadius(15)
-                            .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                            .cornerRadius(isQwertyView() ? 10 : 15)
+                            .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                             .foregroundColor(Color("buttonColor"))
-                            .padding(5)
+                            .padding(isQwertyView() ? 2 : 5)
                         Image(systemName: capsLock ? "capslock.fill" : caps ? "shift.fill" : "shift")
                             .font(.largeTitle.weight(.regular))
                             .foregroundColor(Color("textColor"))
@@ -85,10 +86,10 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .cornerRadius(15)
-                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .cornerRadius(isQwertyView() ? 10 : 15)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
-                                .padding(5)
+                                .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "delete.left")
                                 .font(.largeTitle.weight(.regular))
                                 .foregroundColor(Color("textColor"))
@@ -118,10 +119,10 @@ struct KeyboardView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .cornerRadius(15)
-                                    .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                    .cornerRadius(isQwertyView() ? 10 : 15)
+                                    .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                                     .foregroundColor(Color("buttonColor"))
-                                    .padding(5)
+                                    .padding(isQwertyView() ? 2 : 5)
                                 Image(systemName: "space")
                                     .font(.largeTitle.weight(.regular))
                                     .foregroundColor(Color("textColor"))
@@ -133,10 +134,10 @@ struct KeyboardView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .cornerRadius(15)
-                                .frame(width: isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10, height: g.size.height / 6 - 10)
+                                .cornerRadius(isQwertyView() ? 10 : 15)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 6 - 4 : g.size.height / 6 - 10)
                                 .foregroundColor(Color("buttonColor"))
-                                .padding(5)
+                                .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "return")
                                 .font(.largeTitle.weight(.regular))
                                 .foregroundColor(Color("textColor"))
@@ -166,6 +167,9 @@ struct KeyboardView: View {
         }
         .background(Color("backgroundColor"))
         .ignoresSafeArea(.keyboard)
+    }
+    func isQwertyView() -> Bool {
+        return view == "text" && isQwerty == 1
     }
 }
 

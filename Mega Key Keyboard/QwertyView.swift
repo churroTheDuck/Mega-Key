@@ -44,10 +44,10 @@ struct QwertyView: View {
                         }) {
                             ZStack {
                                 Rectangle()
-                                    .cornerRadius(15)
-                                    .frame(width: g.size.width / 10 - 10, height: g.size.height / 3 - 10)
+                                    .cornerRadius(10)
+                                    .frame(width: g.size.width / 10 - 4, height: g.size.height / 3 - 4)
                                     .foregroundColor(Color("buttonColor"))
-                                    .padding(5)
+                                    .padding(2)
                                 Text(caps || capsLock ? letter : letter.lowercased())
                                     .font(.largeTitle.weight(.regular))
                                     .foregroundColor(Color("textColor"))
