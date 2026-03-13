@@ -12,7 +12,6 @@ struct Mega_KeyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .background(PredictionSetupController())
         }
     }
 }
