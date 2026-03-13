@@ -10,35 +10,23 @@ import AVFoundation
 
 struct PredictionView: View {
     var textDocumentProxy: UITextDocumentProxy
-    @Binding var predictions: [String]
-    var getPredictions: (String, @escaping ([String]) -> Void) -> Void
+    let suggestions: [String]
+    let onSelect: (String) -> Void
     var body: some View {
         GeometryReader { g in
             HStack(spacing: 0) {
-                ForEach(predictions, id: \.self) { prediction in
+                ForEach(suggestions, id: \.self) { suggestion in
                     Button(action: {
-                        let currentText = textDocumentProxy.documentContextBeforeInput ?? ""
-                        if !currentText.hasSuffix(" ") && !currentText.isEmpty {
-                            while let context = textDocumentProxy.documentContextBeforeInput,
-                                  !context.isEmpty && !context.hasSuffix(" ") {
-                                textDocumentProxy.deleteBackward()
-                            }
-                        }
-                        textDocumentProxy.insertText(prediction + " ")
-                        getPredictions(textDocumentProxy.documentContextBeforeInput ?? "") { suggestions in
-                            do {
-                                predictions = suggestions
-                            } catch {}
-                        }
+                        onSelect(clean(suggestion))
                         AudioServicesPlaySystemSound(1104)
                     }) {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(15)
-                                .frame(width: g.size.width / 3 - 10, height: g.size.height - 10)
+                                .frame(width: g.size.width / 6 - 10, height: g.size.height / 5 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(5)
-                            Text(clean(prediction))
+                            Text(clean(suggestion))
                                 .font(.largeTitle.weight(.regular))
                                 .foregroundColor(Color("textColor"))
                         }
