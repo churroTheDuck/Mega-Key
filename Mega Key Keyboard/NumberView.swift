@@ -12,6 +12,7 @@ struct NumberView: View {
     @State var caps = true
     @State var capsLock = false
     var textDocumentProxy: UITextDocumentProxy
+    var updateContext: () -> Void
     var body: some View {
         GeometryReader { g in
             LazyVGrid(columns: [
@@ -27,14 +28,17 @@ struct NumberView: View {
                             if !capsLock {
                                 if caps {
                                     textDocumentProxy.insertText(letter)
+                                    updateContext()
                                     if (letter != "(" && letter != ")" && letter != "-" && letter != "/") {
                                         caps = false
                                     }
                                 } else {
                                     textDocumentProxy.insertText(letter.description.lowercased())
+                                    updateContext()
                                 }
                             } else {
                                 textDocumentProxy.insertText(letter)
+                                updateContext()
                             }
                             AudioServicesPlaySystemSound(1104)
                         }) {

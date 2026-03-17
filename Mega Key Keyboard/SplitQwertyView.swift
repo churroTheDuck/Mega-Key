@@ -13,6 +13,7 @@ struct SplitQwertyView: View {
     @Binding var capsLock: Bool
     @Binding var left: Bool
     var textDocumentProxy: UITextDocumentProxy
+    var updateContext: () -> Void
     var body: some View {
         let leftAlphabet = ["Q", "W", "E", "R", "T", "A", "S", "D", "F", "G", "Z", "X", "C", "V", "B"]
         let rightAlphabet = ["Y", "U", "I", "O", "P", "H", "J", "K", "L", "!", "N", "M", ",", ".", "?"]
@@ -29,12 +30,15 @@ struct SplitQwertyView: View {
                             if !capsLock {
                                 if caps {
                                     textDocumentProxy.insertText(letter)
+                                    updateContext()
                                     caps = false
                                 } else {
                                     textDocumentProxy.insertText(letter.lowercased())
+                                    updateContext()
                                 }
                             } else {
                                 textDocumentProxy.insertText(letter)
+                                updateContext()
                             }
                             AudioServicesPlaySystemSound(1155)
                         }) {
@@ -55,6 +59,7 @@ struct SplitQwertyView: View {
                 HStack(spacing: 0) {
                     Button(action: {
                         textDocumentProxy.insertText(" ")
+                        updateContext()
                     }) {
                         ZStack {
                             Rectangle()

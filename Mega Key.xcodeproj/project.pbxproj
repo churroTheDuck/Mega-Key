@@ -10,6 +10,7 @@
 		7B19F4802EFF9E9000CE2827 /* QwertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */; };
 		7B673BAB2F639CDF00ACED03 /* ngrams.db in Resources */ = {isa = PBXBuildFile; fileRef = 7B673BAA2F639CDF00ACED03 /* ngrams.db */; };
 		7B673BAD2F63C2C900ACED03 /* NGramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B673BAC2F63C2C900ACED03 /* NGramModel.swift */; };
+		7B673BAF2F63C97100ACED03 /* PredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B673BAE2F63C97100ACED03 /* PredictionView.swift */; };
 		7B8C08542C7C00F4004AEB4B /* Mega_KeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */; };
 		7B8C08562C7C00F4004AEB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C08552C7C00F4004AEB4B /* ContentView.swift */; };
 		7B8C085B2C7C00F5004AEB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8C085A2C7C00F5004AEB4B /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwertyView.swift; sourceTree = "<group>"; };
 		7B673BAA2F639CDF00ACED03 /* ngrams.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ngrams.db; sourceTree = "<group>"; };
 		7B673BAC2F63C2C900ACED03 /* NGramModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGramModel.swift; sourceTree = "<group>"; };
+		7B673BAE2F63C97100ACED03 /* PredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionView.swift; sourceTree = "<group>"; };
 		7B8C08502C7C00F4004AEB4B /* Mega Key.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mega Key.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8C08532C7C00F4004AEB4B /* Mega_KeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mega_KeyApp.swift; sourceTree = "<group>"; };
 		7B8C08552C7C00F4004AEB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				7BEE5DB62E6671CF00D3796A /* Mega Key Keyboard.entitlements */,
 				7B8C08762C7C017E004AEB4B /* KeyboardViewController.swift */,
+				7B673BAE2F63C97100ACED03 /* PredictionView.swift */,
 				7B673BAC2F63C2C900ACED03 /* NGramModel.swift */,
 				7BE65E492C95082600F6F241 /* TextGridView.swift */,
 				7B19F47F2EFF9E9000CE2827 /* QwertyView.swift */,
@@ -256,6 +259,7 @@
 				7BE65E4A2C95082600F6F241 /* TextGridView.swift in Sources */,
 				7BE65E4C2C96840D00F6F241 /* SplitQwertyView.swift in Sources */,
 				7BE65E4E2CAA532600F6F241 /* NumberView.swift in Sources */,
+				7B673BAF2F63C97100ACED03 /* PredictionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
