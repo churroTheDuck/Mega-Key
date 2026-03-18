@@ -29,7 +29,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(isQwertyView() ? 10 : 15)
-                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "globe")
@@ -48,7 +48,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(isQwertyView() ? 10 : 15)
-                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: view == "text" ? "textformat.123" : "abc")
@@ -59,7 +59,7 @@ struct KeyboardView: View {
                     ZStack {
                         Rectangle()
                             .cornerRadius(isQwertyView() ? 10 : 15)
-                            .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                            .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                             .foregroundColor(Color("buttonColor"))
                             .padding(isQwertyView() ? 2 : 5)
                         Image(systemName: capsLock ? "capslock.fill" : caps ? "shift.fill" : "shift")
@@ -90,7 +90,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(isQwertyView() ? 10 : 15)
-                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "delete.left")
@@ -126,7 +126,7 @@ struct KeyboardView: View {
                             ZStack {
                                 Rectangle()
                                     .cornerRadius(isQwertyView() ? 10 : 15)
-                                    .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                                    .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                                     .foregroundColor(Color("buttonColor"))
                                     .padding(isQwertyView() ? 2 : 5)
                                 Image(systemName: "space")
@@ -142,7 +142,7 @@ struct KeyboardView: View {
                         ZStack {
                             Rectangle()
                                 .cornerRadius(isQwertyView() ? 10 : 15)
-                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.width / 7 - 4 : g.size.height / 7 - 10)
+                                .frame(width: isQwertyView() ? g.size.width / 6 - 4 : (isQwerty != 2 ? g.size.width / 6 - 10 : g.size.width / 5 - 10), height: isQwertyView() ? g.size.height / 7 - 4 : g.size.height / 7 - 10)
                                 .foregroundColor(Color("buttonColor"))
                                 .padding(isQwertyView() ? 2 : 5)
                             Image(systemName: "return")
