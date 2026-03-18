@@ -11,6 +11,7 @@ struct PredictionView: View {
     @StateObject private var model = NGramModel()
     @State var textPredictions: [NGramModel.Prediction] = []
     @State var textCompletions = ["", "", ""]
+    let isQwerty = UserDefaults(suiteName: "group.mega-key")?.integer(forKey: "isQwerty") ?? 0
     var textDocumentProxy: UITextDocumentProxy
     var documentContext: String  // driven by KeyboardState
     var updateContext: () -> Void
@@ -40,10 +41,10 @@ struct PredictionView: View {
                     }) {
                         ZStack {
                             Rectangle()
-                                .cornerRadius(15)
-                                .frame(width: g.size.width / 3 - 10, height: g.size.height - 10)
+                                .cornerRadius(isQwerty == 1 ? 10 : 15)
+                                .frame(width: isQwerty == 1 ? g.size.width / 3 - 4 : g.size.width / 3 - 10, height: isQwerty == 1 ? g.size.height - 4 : g.size.height - 10)
                                 .foregroundStyle(Color("buttonColor"))
-                                .padding(5)
+                                .padding(isQwerty == 1 ? 2 : 5)
                             Text(prediction)
                                 .font(.title.weight(.regular))
                                 .foregroundStyle(Color("textColor"))
