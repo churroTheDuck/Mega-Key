@@ -18,15 +18,15 @@ struct ContentView: View {
             Form {
                 Section(header: Text("KEYBOARD LAYOUT")) {
                     Picker("Layout", selection: $settings.isQwerty) {
-                        Text("ABC").tag(0)
-                        Text("QWERTY").tag(1)
-                        Text("Split QWERTY").tag(2)
+                        Text("ABC (recomended for iPhone)").tag(0)
+                        Text("QWERTY (recomended for iPad)").tag(1)
+                        Text("Split QWERTY (works for both iPhone and iPad)").tag(2)
                     }
                     .labelsHidden()
                     .pickerStyle(.inline)
                 }
                 Section(header: Text("SPLIT QWERTY")) {
-                    Text("Split QWERTY is designed for people who need a significantly larger keyboard. It displays half of the keyboard on the screen at once, and you can switch between the two halves by clicking the blue button.")
+                    Text("Split QWERTY is designed for people who need a significantly larger keyboard. It displays half of the keyboard on the screen at a time, and you can switch between the two halves by clicking the blue button.")
                         .foregroundStyle(Color("textColor"))
                         .font(.body)
                     HStack {
