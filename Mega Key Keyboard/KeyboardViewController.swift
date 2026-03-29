@@ -151,7 +151,7 @@ struct KeyboardView: View {
                         }
                     }
                 }
-                PredictionView(textDocumentProxy: textDocumentProxy, documentContext: keyboardState.documentContext, updateContext: updateContext)
+                PredictionView(view: $view, textDocumentProxy: textDocumentProxy, documentContext: keyboardState.documentContext, updateContext: updateContext)
                     .frame(width: g.size.width, height: g.size.height * 1 / 7)
                 if (view == "text") {
                     switch (isQwerty) {
