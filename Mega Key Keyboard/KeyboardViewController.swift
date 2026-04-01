@@ -119,6 +119,11 @@ struct KeyboardView: View {
                         })
                     if (isQwerty != 2) {
                         Button(action: {
+                            if let lastChar = textDocumentProxy.documentContextBeforeInput?.last {
+                                if (lastChar == "." || lastChar == "!" || lastChar == "?") {
+                                    caps = true
+                                }
+                            }
                             textDocumentProxy.insertText(" ")
                             updateContext()
                             AudioServicesPlaySystemSound(1104)
