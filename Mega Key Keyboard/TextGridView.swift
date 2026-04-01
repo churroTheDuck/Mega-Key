@@ -47,9 +47,12 @@ struct TextGridView: View {
                             textDocumentProxy.insertText(letter)
                             updateContext()
                         }
-                        if (letter == "," || letter == "." || letter == "!" || letter == "?") {
+                        if (letter == "." || letter == "!" || letter == "?") {
                             textDocumentProxy.insertText(" ")
                             caps = true
+                        }
+                        if (letter == ",") {
+                            textDocumentProxy.insertText(" ")
                         }
                         AudioServicesPlaySystemSound(1104)
                     }) {
