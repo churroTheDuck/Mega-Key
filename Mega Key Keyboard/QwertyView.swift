@@ -27,38 +27,45 @@ struct QwertyView: View {
                 GridItem(.flexible(), spacing: 0),
                 GridItem(.flexible(), spacing: 0)
             ], spacing: 0) {
-                    ForEach(["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "!", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "?"], id: \.self) { letter in
-                        Button(action: {
-                            if !capsLock {
-                                if caps {
-                                    textDocumentProxy.insertText(letter)
-                                    updateContext()
-                                    if (letter != "(" && letter != ")" && letter != "-" && letter != "/") {
-                                        caps = false
-                                    }
-                                } else {
-                                    textDocumentProxy.insertText(letter.description.lowercased())
-                                    updateContext()
+                ForEach(["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "!", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "?"], id: \.self) { letter in
+                    Button(action: {
+                        if (letter == "," || letter == "." || letter == "!" || letter == "?") {
+                            if let lastChar = textDocumentProxy.documentContextBeforeInput?.last {
+                                if (lastChar == " ") {
+                                    textDocumentProxy.deleteBackward()
                                 }
-                            } else {
+                            }
+                        }
+                        if !capsLock {
+                            if caps {
                                 textDocumentProxy.insertText(letter)
                                 updateContext()
+                                if (letter != "(" && letter != ")" && letter != "-" && letter != "/") {
+                                    caps = false
+                                }
+                            } else {
+                                textDocumentProxy.insertText(letter.description.lowercased())
+                                updateContext()
                             }
-                            AudioServicesPlaySystemSound(1104)
-                        }) {
-                            ZStack {
-                                Rectangle()
-                                    .cornerRadius(10)
-                                    .frame(width: g.size.width / 10 - 4, height: g.size.height / 3 - 4)
-                                    .foregroundColor(Color("buttonColor"))
-                                    .padding(2)
-                                Text(caps || capsLock ? letter : letter.lowercased())
-                                    .font(.largeTitle.weight(.regular))
-                                    .foregroundColor(Color("textColor"))
-                            }
+                        } else {
+                            textDocumentProxy.insertText(letter)
+                            updateContext()
+                        }
+                        AudioServicesPlaySystemSound(1104)
+                    }) {
+                        ZStack {
+                            Rectangle()
+                                .cornerRadius(10)
+                                .frame(width: g.size.width / 10 - 4, height: g.size.height / 3 - 4)
+                                .foregroundColor(Color("buttonColor"))
+                                .padding(2)
+                            Text(caps || capsLock ? letter : letter.lowercased())
+                                .font(.largeTitle.weight(.regular))
+                                .foregroundColor(Color("textColor"))
                         }
                     }
                 }
+            }
         }
     }
 }
