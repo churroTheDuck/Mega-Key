@@ -23,6 +23,7 @@ struct KeyboardView: View {
         GeometryReader { g in
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
+                    // MARK: Globe button
                     Button(action: {
                         advanceToNextInputMode?()
                     }) {
@@ -37,6 +38,7 @@ struct KeyboardView: View {
                                 .foregroundColor(Color("textColor"))
                         }
                     }
+                    // MARK: Switch keyboard
                     Button(action: {
                         if (view == "text") {
                             view = "number"
@@ -56,6 +58,7 @@ struct KeyboardView: View {
                                 .foregroundColor(Color("textColor"))
                         }
                     }
+                    // MARK: Shift
                     ZStack {
                         Rectangle()
                             .cornerRadius(isQwertyView() ? 10 : 15)
@@ -82,6 +85,7 @@ struct KeyboardView: View {
                         }
                         print("\(caps)caps")
                     })
+                    // MARK: Backspace
                     Button(action: {
                         textDocumentProxy.deleteBackward()
                         updateContext()
@@ -117,6 +121,7 @@ struct KeyboardView: View {
                         .onEnded { _ in
                             timer?.invalidate()
                         })
+                    // MARK: Space
                     if (isQwerty != 2) {
                         Button(action: {
                             if let lastChar = textDocumentProxy.documentContextBeforeInput?.last {
@@ -140,6 +145,7 @@ struct KeyboardView: View {
                             }
                         }
                     }
+                    // MARK: Enter
                     Button(action: {
                         textDocumentProxy.insertText("\n")
                         updateContext()
