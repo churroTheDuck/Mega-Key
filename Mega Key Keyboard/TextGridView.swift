@@ -47,6 +47,9 @@ struct TextGridView: View {
                             textDocumentProxy.insertText(letter)
                             updateContext()
                         }
+                        if (letter == "," || letter == "." || letter == "!" || letter == "?") {
+                            textDocumentProxy.insertText(" ")
+                        }
                         AudioServicesPlaySystemSound(1104)
                     }) {
                         ZStack {
