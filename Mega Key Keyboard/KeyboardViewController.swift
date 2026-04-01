@@ -128,8 +128,10 @@ struct KeyboardView: View {
                                 if (lastChar == "." || lastChar == "!" || lastChar == "?") {
                                     caps = true
                                 }
+                                if (lastChar != " ") {
+                                    textDocumentProxy.insertText(" ")
+                                }
                             }
-                            textDocumentProxy.insertText(" ")
                             updateContext()
                             AudioServicesPlaySystemSound(1104)
                         }) {
