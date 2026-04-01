@@ -49,6 +49,7 @@ struct TextGridView: View {
                         }
                         if (letter == "," || letter == "." || letter == "!" || letter == "?") {
                             textDocumentProxy.insertText(" ")
+                            caps = true
                         }
                         AudioServicesPlaySystemSound(1104)
                     }) {
